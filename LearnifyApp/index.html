@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learnify</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+          
+        }
+
+        .title {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 3em;
+            color: #007bff;
+            font-weight: 600;
+        }
+
+        .sortFilterSearch {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .filterByLevel,
+        .searchCoursesByTitle {
+            padding: 10px;
+            font-size: 1em;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .Container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding : 0px 100px;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 300px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 15px;
+        }
+
+        .card-content h3 {
+            margin: 0 0 10px;
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        .card-content p {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .card-content button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .card-content button:hover {
+            background-color: #0056b3;
+        }
+
+        .footer {
+            background-color: #212529;
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footerHeading {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        .footerImg img {
+            margin: 0 10px;
+            width: 80px;
+            vertical-align: middle;
+        }
+
+        .footerLists {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin: 20px 0;
+        }
+
+        .footerLists ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footerLists ul li {
+            margin-bottom: 10px;
+        }
+
+        .footerLanguageButton {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+       
+
+        .container-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f3f4f4;
+            margin-top: 50px;
+            padding: 40px;
+        }
+
+        .content-box {
+            max-width: 600px;
+            padding: 20px;
+        }
+
+        .content-box h3,
+        .content-box h1 {
+            margin: 0;
+        }
+
+        .stats {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .stats div {
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            font-weight: bold;
+            font-size: 1em;
+            margin-top: 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+        #imageDummy {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.content-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.image-section {
+    flex: 1;
+    max-width: 50%;
+    padding: 20px;
+}
+
+.image-section img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.article-section {
+    flex: 1;
+    max-width: 50%;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-left: 20px;
+}
+
+.article-section h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.article-section h3 {
+    font-size: 1.6em;
+    color: #007bff;
+    margin-top: 25px;
+}
+
+.article-section p {
+    font-size: 1.2em;
+    color: #555;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.article-section ul {
+    margin-top: 15px;
+    list-style-type: disc;
+    margin-left: 40px;
+}
+
+.article-section ul li {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.article-section ul li b {
+    color: #333;
+}
+
+    </style>
+</head>
+
+<body>
+    <h1 class="title">Learnify</h1>
+    <div class="sortFilterSearch">
+        <select name="" id="" class="filterByLevel">
+            <option value="All">by Level</option>
+            <option value="Advanced">Advanced</option>
+            <option value="Intermediate">Intermediate</option>
+            <option value="Beginner">Beginner</option>
+        </select>
+        <input class="searchCoursesByTitle" type="text" placeholder="Search by Title..." oninput="searchByTitle()">
+    </div>
+    <div class="Container">
+        <div class="card">
+            <img src="https://via.placeholder.com/300x200" alt="Course Image">
+            <div class="card-content">
+                <h3>Course Title</h3>
+                <p>Brief description of the course.</p>
+                <button>Add to Cart</button>
+            </div>
+        </div>
+    </div>
+    <div id="imageDummy">
+        <div class="content-container">
+            <div class="image-section">
+                <img src="https://media.istockphoto.com/id/1216029344/vector/teenagers-watching-videos-on-their-laptops-online-training-students-are-watching-the-lesson.jpg?s=2048x2048&w=is&k=20&c=A2PcY36nWAvqWCkyktRmN7lopsDEhIXgPQiwRDWo3OE=" alt="Teenagers watching videos">
+                <img src="https://media.istockphoto.com/id/517136131/vector/online-workshop-gears-concept.jpg?s=2048x2048&w=is&k=20&c=Xr64V-6zZYwrxALVYq9z66g-bOSXe8FtytI-mY4bYiY=" alt="">
+            </div>
+            <div class="article-section">
+                <h2>Online Learning: The Future of Education</h2>
+                <p>Online learning has become a cornerstone of modern education, revolutionizing how students and professionals access knowledge. Recent surveys highlight its growing influence and the increasing number of people turning to digital platforms for education. The flexibility, affordability, and convenience it offers have made online learning a popular choice worldwide.</p>
+                
+                <h3>Current State of Online Learning</h3>
+                <p>Over the last decade, online learning platforms like Coursera, Udemy, and edX have gained immense popularity. According to a recent survey, 70% of learners have reported positive experiences with online education, citing ease of access and the ability to learn at their own pace as the main benefits.</p>
+                
+                <ul>
+                    <li>81% of students in the UK find online learning to be flexible and convenient, allowing them to balance studies with work and personal life.</li>
+                    <li>In India, 69% of professionals in the IT sector prefer online learning due to its targeted, cost-effective nature.</li>
+                    <li>Corporate adoption of online platforms has increased by 50% in the last two years, with companies investing in employee skill development through platforms like LinkedIn Learning and Skillshare.</li>
+                </ul>
+                
+                <h3>Benefits of Online Learning</h3>
+                <p>Online education has numerous advantages that cater to a wide range of learners:</p>
+                <ul>
+                    <li><b>Flexibility:</b> Students can learn from anywhere, at any time, which is especially helpful for working professionals and remote learners.</li>
+                    <li><b>Cost-Effective:</b> Online courses are typically more affordable than traditional in-person education, offering greater access to learning resources.</li>
+                    <li><b>Wide Variety:</b> Online platforms offer courses across a wide range of subjects, allowing learners to explore new fields or specialize in existing careers.</li>
+                    <li><b>Personalized Learning:</b> Learners can choose their own pace, style, and preferred method of learning, which can improve retention and understanding of the subject matter.</li>
+                </ul>
+                
+                <h3>Challenges of Online Learning</h3>
+                <p>Despite its growth, online learning faces several challenges:</p>
+                <ul>
+                    <li><b>Limited Social Interaction:</b> One of the major drawbacks is the lack of in-person interactions, which can affect collaboration and networking opportunities.</li>
+                    <li><b>Self-Motivation:</b> Online learning requires a high level of self-discipline and motivation. Without traditional classroom structures, some learners may struggle with procrastination.</li>
+                    <li><b>Technical Issues:</b> Access to reliable internet and technology can be a barrier for learners in rural or economically disadvantaged areas.</li>
+                </ul>
+                
+                <h3>Future Trends in Online Education</h3>
+                <p>The future of online learning looks promising with the integration of advanced technologies and new learning methodologies:</p>
+                <ul>
+                    <li><b>AI and Adaptive Learning:</b> Artificial Intelligence is transforming how online platforms tailor content to individual learning styles, making the learning process more personalized.</li>
+                    <li><b>Microlearning:</b> The rise of microlearning, where learners engage with small, bite-sized pieces of content, is becoming increasingly popular as it suits busy schedules.</li>
+                    <li><b>VR and AR:</b> Virtual Reality (VR) and Augmented Reality (AR) are expected to further enhance online education by providing immersive, interactive learning experiences.</li>
+                </ul>
+                
+                <h3>Conclusion</h3>
+                <p>Online learning has proven to be a viable and effective alternative to traditional education. With the increasing number of learners turning to digital platforms, the future of education looks to be more accessible, flexible, and personalized. However, there will still be challenges to overcome, especially in terms of accessibility, social interaction, and the need for self-discipline. As technology continues to evolve, the impact of online education will only grow, providing lifelong learning opportunities for individuals across the globe.</p>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="container-section">
+        <div class="content-box">
+            <h3>Booz | Allen | Hamilton</h3>
+            <h1>Booz Allen Hamilton Unlocks Talent Retention and Productivity Through Upskilling</h1>
+            <div class="stats">
+                <div>
+                    <h1>93%</h1>
+                    <p>Retention rate among participating employees</p>
+                </div>
+                <div>
+                    <h1>65%</h1>
+                    <p>Of learners noted a positive impact on their productivity</p>
+                </div>
+            </div>
+            <hr>
+            <button>Read full story</button>
+        </div>
+        <div>
+            <img style="width: 700px; height: 600px;" src="https://cms-images.udemycdn.com/content/c4gpjcmcsk/png/UB_Case_Studies_Booz_Allen_image.png?position=c&quality=80&x.app=portals" alt="Booz Allen Hamilton">
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p class="footerHeading">Top companies choose <b style="color: rgb(123, 163, 249);">Threadify Business</b> to build in-demand career skills</p>
+        <div class="footerImg">
+            <img src="https://s.udemycdn.com/partner-logos/v4/nasdaq-light.svg" alt="Nasdaq Logo">
+            <img src="https://s.udemycdn.com/partner-logos/v4/volkswagen-light.svg" alt="Volkswagen Logo">
+            <img src="https://s.udemycdn.com/partner-logos/v4/box-light.svg" alt="Box Logo">
+            <img src="https://s.udemycdn.com/partner-logos/v4/netapp-light.svg" alt="NetApp Logo">
+            <img src="https://s.udemycdn.com/partner-logos/v4/eventbrite-light.svg" alt="Eventbrite Logo">
+        </div>
+        <hr>
+        <div class="footerLists">
+            <ul>
+                <li>Threadify Business</li>
+                <li>Teach on Threadify</li>
+                <li>Get the app</li>
+                <li>About us</li>
+                <li>Contact us</li>
+            </ul>
+            <ul>
+                <li>Careers</li>
+                <li>Blog</li>
+                <li>Help and Support</li>
+                <li>Affiliate</li>
+                <li>Investors</li>
+            </ul>
+            <ul>
+                <li>Teams</li>
+                <li>Privacy policy</li>
+                <li>Cookie settings</li>
+                <li>Sitemap</li>
+                <li>Accessibility statement</li>
+            </ul>
+            <button class="footerLanguageButton">
+                <img src="https://cdn-icons-png.flaticon.com/128/18341/18341736.png" alt="Language Icon" style="width: 20px;">
+                English
+            </button>
+        </div>
+        <hr>
+        <div class="logo">
+            <div>&copy; 2024 Learnify. Inc.</div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
